@@ -1,0 +1,120 @@
+PREFIX_CHECKER_DEBUG = True
+AS_EXPLORER_DEBUG = False
+TRAFFMON_DEBUG = False
+
+NFSEN_URL = "https://nfsen.msk.iptp.net"
+NFSEN_USERNAME = "traffmon"
+NFSEN_PASSWORD = "nI^3!4JE1Pxi$FHj2Qpp&lOQ"
+
+AS_EXPLORER_CACHE_EXPIRATION_INTERVAL = 60 * 60 * 24 # In seconds, 24h by default
+
+# For some reason now most of suspicious traffic in r0.f1k12 moved from
+# as 0 to as 3549. Bolivia still only shows AS 0. We are adding this
+# to also check for results in AS 3549
+# We could also fix this by simply adding 3549 to the as 0 fix filer
+# (or src as 3549). But we will keep this in order to monitor its behaviour.
+# IMPORTANT: this increased taken time from 54/80 seconds to 150/140 seconds
+# for the traffmon.py script.
+# Maybe we could also add the 'bad traffic' to the DB. Not doing it for now.
+
+# Use AS 0 only by default
+BAD_AS_LIST = []
+
+
+GOOGLE = {"name": "Google", 'match':"15169"}
+FACEBOOK = {"name": "Facebok", 'match':"32934"}
+AKAMAI = {"name": "Akamai", 'match':"20940"}
+NETFLIX = {"name": "Netflix", 'match':"2906"}
+TELEFONICA = {"name": "Telefonica", 'match':"6147", "priority": 1}
+AMAZON = {"name": "Amazon", 'match':"16509"}
+YACHAY = {"name": "Yachay", 'match':"3132", "priority": 1}
+INTERNEXA = {"name": "Internexa", 'match':"28032", "priority": 1}
+LEVEL3 = {"name": "Level 3", 'match':"3356", "priority": 1}
+CDN77 = {"name": "CDN77", 'match':"60068"}
+EDGEUNO = {"name": "EDGEUNO", 'match':"7195"}
+FASTLY = {"name": "Fastly", 'match':"54113"}
+ORACLE = {"name": "ORACLE", 'match':"31898"}
+JUSTINTV = {"name": "Twitch", 'match':"46489"}
+CLOUDFLARE = {"name": "Cloudflare", 'match':"13335"}
+ROBLOX = {"name": "Roblox", 'match':"22697"}
+HIGHWINDS = {"name": "Highwinds", 'match':"20446"}
+MEDIAFIRE = {"name": "Mediafire", 'match':"46179"}
+LLNW = {"name": "Limelight", 'match':"22822"}
+ZNET = {"name": "Zenlayer", 'match':"21859"}
+CACHENETWORKS = {"name": "Cache Networks", 'match':"30081"}
+GCORE = {"name": "GCORE", 'match':"199524"}
+
+MICROSOFT = {"name": "MICROSOFT", 'match':"8068"}
+OVH = {"name": "OVH", 'match':"16276"}
+TI_RU_ISP = {"name": "TI RU ISP", 'match':"12714", "priority": 1}
+AS23456= {"name": "NO_INFO", 'match':"23456"}
+TELIA = {"name": "TELIA", 'match':"3249", "priority": 1}
+ThreeData = {"name": "ThreeData-AS", 'match':"48219"}
+TRN_TELECOM = {"name": "TRN-TELECOM-AS", 'match':"35377"}
+MF_MGSM_AS = {"name": "MF-MGSM-AS", 'match':"31133", "priority": 1}
+BRM_AS = {"name": "BRM-AS", 'match':"8193"}
+YANDEX = {"name": "YANDEX", 'match':"13238"}
+SONICDUO = {"name": "SONICDUO", 'match':"25159"}
+Freedom_Finance = {"name": "Freedom Finance", 'match':"43900"}
+MF_KAVKAZ_AS = {"name": "MF-KAVKAZ-AS", 'match':"31163", "priority": 1}
+UNITEL = {"name": "UNITEL", 'match':"41202"}
+TATTELECOM = {"name": "TATTELECOM-AS", 'match':"28840"}
+Amazon = {"name": "Amazon", 'match':"16509"}
+KAR_TEL = {"name": "KAR-TEL-AS", 'match':"21299", "priority": 1}
+MF_NWGSM_AS = {"name": "MF-NWGSM-AS", 'match':"31213", "priority": 1}
+
+Ucell = {"name": "Ucell", 'match':"49273"}
+MF_SIB_AS = {"name": "MF-SIB-AS", 'match':"31205", "priority": 1}
+MASTERTEL = {"name": "MASTERTEL", 'match':"29226"}
+Kazakh_Telecom = {"name": "Kazakh Telecom", 'match':"9198"}
+
+ISPsystem = {"name": "THEFIRST-AS", 'match':"29182"}
+AppleInc = {"name": "APPLE-ENGINEERING", 'match':"714"}
+Capgemini_NL = {"name": "Capgemini_Outsourcing_NL", 'match':"16074"}
+Servers_Inc= {"name": "SERVERS-COM", 'match':"7979"}
+Petersburg_Internet_Network = {"name": "PINDC-AS", 'match':"34665"}
+AGTelecom = {"name": "AGTelecom-AS", 'match':"9110", "priority": 1}
+
+ZTELECOM_AS = {"name": "ZTelecom", 'match':"15169", "priority": 1}
+GNC_ALFA = {"name": "Rostelecom", 'match':"49800"}
+NGENIX = {"name": "NGENIX", 'match':"34879"}
+ARPINET = {"name": "Arpinet", 'match':"201986"}
+AKADO = {"name": "AKADO", 'match':"15582"}
+DDOS_GUARD = {"name": "DDOS_Guard", 'match':"57724"}
+PAYPAL = {"name": "PAYPAL", 'match':"17012"}
+
+AS_LIST = [MICROSOFT,OVH,TI_RU_ISP,AS23456,TELIA,ThreeData,TRN_TELECOM,MF_MGSM_AS,BRM_AS,YANDEX,SONICDUO,Freedom_Finance,MF_KAVKAZ_AS,UNITEL,TATTELECOM,Amazon,KAR_TEL,MF_NWGSM_AS,Ucell,MF_SIB_AS,MASTERTEL,Kazakh_Telecom,ISPsystem,AppleInc,AS23456,CLOUDFLARE,Capgemini_NL,Servers_Inc,Petersburg_Internet_Network,AMAZON,FACEBOOK,AGTelecom,ZTELECOM_AS,GNC_ALFA,NGENIX,ARPINET,AKADO,DDOS_GUARD,PAYPAL]
+
+
+##################### MSK_M1 DOWN ############################
+MSK_IX_DOWN_FILTER = {"name": "MSK IX", "interface": "164", "resources": {"as_down_src": {"query":{"filter": "in if 164", "stattype": 11, "topN":2}}}}
+MSK_M1_HSIP_DOWN_FILTER = {"name": "MSK M1 HSIP", "interface": "157", "resources": {"as_down_src": {"query":{"filter": "in if 157", "stattype": 11, "topN":2}}}}
+MSK_M5_HSIP_DOWN_FILTER = {"name": "MSK M5 HSIP", "interface": "54", "resources": {"as_down_src": {"query":{"filter": "in if 54", "stattype": 11, "topN":2}}}}
+
+
+MSK_M1_DOWN_INTERFACES = [MSK_IX_DOWN_FILTER,MSK_M1_HSIP_DOWN_FILTER]
+
+MSK_M1_DOWN_RESOURCES = {"as_down_src": AS_LIST}
+
+MSK_M5_HSIP_DOWN_FILTER = {"name": "MSK M5 HSIP", "interface": "54", "resources": {"as_down_src": {"query":{"filter": "in if 54", "stattype": 11, "topN":2}}}}
+MSK_M5_DOWN_INTERFACES = [MSK_M5_HSIP_DOWN_FILTER]
+MSK_M5_DOWN_RESOURCES = {"as_down_src": AS_LIST}
+
+
+COUNTRIES = [
+             {"name": "Moscow M1", "router": "r0-m1-m9-msk", "customers": MSK_M1_DOWN_INTERFACES, "resources": MSK_M1_DOWN_RESOURCES},
+             {"name": "Moscow M5", "router": "r0-m5-m9-msk", "customers": MSK_M5_DOWN_INTERFACES, "resources": MSK_M5_DOWN_RESOURCES},
+	    ]
+
+
+for country in COUNTRIES:
+    for customer in country["customers"]:
+       #del customer["resources"]["as"]
+        for resource, resource_data in customer["resources"].items():
+            if resource == "as":
+                resource_data["query"]["topN"] = 2
+
+
+
+
+

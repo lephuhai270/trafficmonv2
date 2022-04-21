@@ -1,0 +1,6 @@
+bs4
+influxdb
+
+grafana credentials
+admin
+ec0n0c0m
